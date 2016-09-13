@@ -42,6 +42,8 @@ class StructureController < ApplicationController
                               order: s["order"].to_i,
                               display: s["display"])
         section.save
+      else
+        section = Section.find_by(slug: s["slug"])
       end
       if s["subsections"]
         store_subsections(section, s["subsections"]["subsection"])
