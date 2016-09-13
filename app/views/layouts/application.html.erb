@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <div class="header">
+            <h1><%= @title %></h1>
+            <% if @subtitle %>
+                <h5><%= @subtitle %></h5>
+            <% end %>
+        </div>
+        <div class="links-banner">
+            <% Category.all.order(:order).find_each do |c| %>
+                <a href="/<%= c.name %>">
+                    <h5 <%= c.name == params["category"] ? 'class=selected' : "" %>><%= c.title %></h5>
+                </a>
+            <% end %>
+        </div>
+
+        <%= yield %>
+
+        <div class="footer">
+            <p><i>Made by hand</i> by David ROBIN</p>
+            <p>Thanks for visiting</p>
+        </div>
+    </body>
+</html>
