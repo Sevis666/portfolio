@@ -71,7 +71,7 @@ a:hover {
 }
 
 .links-banner {
-    background: #113;
+    background: #050520;
     margin: 0;
     display: flex;
     flex-direction: row;
@@ -102,7 +102,7 @@ a:hover {
 }
 
 /* --- POST BOX --- */
-.post-box {
+.post-box, .subsection-box {
     margin: 2.5rem auto 1rem auto;
     padding: 2rem 3rem;
     border-radius: .3rem;
@@ -128,15 +128,19 @@ a:hover {
         margin: 0 auto;
     }
 
-    .post-title {
+    .title {
         text-align: center;
         margin-top: 1.5rem;
         margin-bottom: 1.8rem;
     }
 
-    .top-date {
+    .date {
         text-align: left;
         color: #a0a0a0;
+    }
+
+    .description {
+        text-align: center;
     }
 }
 

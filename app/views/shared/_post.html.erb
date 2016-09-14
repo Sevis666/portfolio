@@ -1,9 +1,9 @@
 <% file = File.open(Rails.root.to_s + "/data/" + post.path + '/' + post.slug + ".md") %>
 <div class="post-box markdown-body">
     <% if (with_title ||= false) %>
-        <p class="top-date"><%= post.creation_date.strftime("%B %d, %Y") %> by David</p>
+        <p class="date"><%= post.creation_date.strftime("%B %d, %Y") %> by David</p>
         <% link = Section.find(post.section_id).slug + '/' + post.slug %>
-        <h2 class="post-title"><%= link_to post.name, link %></h2>
+        <h2 class="title"><%= link_to post.name, link %></h2>
     <% end %>
     <%= @markdown.render(file.read).html_safe %>
     <% if post.last_modification_date > post.creation_date %>
