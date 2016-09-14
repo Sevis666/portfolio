@@ -1,6 +1,10 @@
 class SectionController < ApplicationController
   def default
-    render action: "show", section: "home"
+    load_renderer
+    @section = Section.order(:order).take
+    params[:section] = @section.slug
+    @title = "Welcome to sevis's portfolio"
+    render action: "show"
   end
 
   def show
