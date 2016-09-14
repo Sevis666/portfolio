@@ -25,6 +25,7 @@ class SectionController < ApplicationController
     if @post
       # This is a direct child of the section, just display it
       @title = @post.name
+      @subtitle = @post.creation_date.strftime("%B %d, %Y")
       render "posts/show" and return
     end
     @subsection = Subsection.find_by(section_id: @section.id, slug: params[:subsection])

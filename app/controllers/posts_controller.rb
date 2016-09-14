@@ -6,6 +6,8 @@ class PostsController < ApplicationController
     @post = Post.find_by(section_id: section.id,
                          subsection_id: subsection.nil? ? nil : subsection.id,
                          slug: params[:post])
+    @title = @post.name
+    @subtitle = @post.creation_date.strftime("%B %d, %Y")
   end
 
   def show_by_category
