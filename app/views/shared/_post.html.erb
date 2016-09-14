@@ -6,6 +6,16 @@
         <h2 class="title"><%= link_to post.name, link %></h2>
     <% end %>
     <%= @markdown.render(file.read).html_safe %>
+
+    <% tags = post.tags %>
+    <% unless tags.empty? %>
+        <div class="tags-wrapper">
+            <% tags.each do |tag| %>
+                <%= link_to (tag.name || tag.slug), '/tags/' + tag.slug, class: "tag" %>
+            <% end %>
+        </div>
+    <% end %>
+
     <% if post.last_modification_date > post.creation_date %>
         <p class="last-modification-date">Last updated on <%= post.last_modification_date.strftime("%b %d, %Y") %> by David</p>
     <% end %>

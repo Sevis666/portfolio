@@ -94,6 +94,16 @@ class StructureController < ApplicationController
             .save unless r.nil?
         end
       end
+
+      unless info["tags"].nil?
+        tags = info["tags"]["tag"]
+        tags = [tags] unless tags.is_a? Array
+        tags.each do |tagname|
+          tag = Tag.find_by(slug: tagname) || Tag.new(slug: tagname)
+          tag.save
+          p.tags << tag
+        end
+      end
     end
   end
 end
