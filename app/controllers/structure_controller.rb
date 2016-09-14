@@ -70,7 +70,7 @@ class StructureController < ApplicationController
       p = post.split('/')
       slug = p.last
       path = p[0..-2].join('/')
-      next unless Post.where(slug: slug, path: path).count == 0
+
       info = Hash.from_xml(File.read(post + '.xml'))["post"]
 
       str = info["creation_date"] || info["cd"]
@@ -78,10 +78,22 @@ class StructureController < ApplicationController
       str = info["last_modification_date"] || info["lmd"]
       lmd = str.nil? ? Date.today : Date.parse(str)
 
-      Post.new(slug: slug, path: path, name: info["name"],
-               creation_date: cd, last_modification_date: lmd,
-               section_id: section.id, subsection_id: subsection.nil? ? nil : subsection.id)
-        .save
+      p = Post.find_by(slug: slug, path: path) ||
+          Post.new(slug: slug, path: path, section_id: section.id, subsection_id: subsection.nil? ? nil : subsection.id)
+      p.name = info["name"]
+      p.creation_date = cd
+      p.last_modification_date = lmd
+      p.save
+
+      unless info["related_posts"].nil?
+        related = info["related_posts"]["post"]
+        related = [related] unless related.is_a? Array
+        related.each do |rp|
+          r = Post.find_by_path(rp)
+          RelatedPost.new(post_id: p.id, related_post_id: r.id)
+            .save unless r.nil?
+        end
+      end
     end
   end
 end

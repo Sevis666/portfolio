@@ -10,3 +10,15 @@
         <p class="last-modification-date">Last updated on <%= post.last_modification_date.strftime("%b %d, %Y") %> by David</p>
     <% end %>
 </div>
+<% if (with_related_posts ||= false) %>
+    <% related_posts = post.related_posts %>
+    <% unless related_posts.empty? %>
+        <div class="related-posts-box">
+            <% related_posts.each do |p| %>
+                <div class="related-post">
+                    <h3 class="title"><%= link_to p.name, p.link %></h3>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+<% end %>

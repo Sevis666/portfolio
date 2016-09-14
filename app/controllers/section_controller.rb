@@ -25,7 +25,7 @@ class SectionController < ApplicationController
     if @post
       # This is a direct child of the section, just display it
       @title = @post.name
-      render "posts/show"
+      render "posts/show" and return
     end
     @subsection = Subsection.find_by(section_id: @section.id, slug: params[:subsection])
     @title = @subsection.name

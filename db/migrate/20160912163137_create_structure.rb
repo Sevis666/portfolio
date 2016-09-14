@@ -34,5 +34,10 @@ class CreateStructure < ActiveRecord::Migration
       t.date :last_modification_date
       t.string :path
     end
+
+    create_table :related_posts do |t|
+      t.integer :post_id
+      t.integer :related_post_id
+    end
   end
 end
