@@ -1,0 +1,166 @@
+body {
+    background: #e8e8e8;
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4, h5, p, a, small {
+    margin: .8rem;
+}
+h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+}
+h2 {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+h5 , h5 a {
+    text-transform: uppercase;
+}
+
+a {
+    color: #000;
+    text-transform: none;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.small {
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+}
+
+/* --- HEADER --- */
+.header {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5rem 1rem;
+    width: 100%;
+    background: #000;
+    background-image: url(image-path("texture.jpg"));
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+
+    h1, h5 {
+        text-shadow: 2px 2px 6px #000;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+        line-height: 4rem;
+    }
+
+    h5 {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+    }
+}
+
+.links-banner {
+    background: #113;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        margin: 0;
+        padding: 0;
+    }
+
+    h5 {
+        padding: .3rem 1.2rem;
+        margin: .7rem 0;
+        color: #fff;
+        border-right: 1px solid #fff;
+        font-weight: bold;
+    }
+
+    h5.selected {
+        color: #86b6d6;
+    }
+
+    a:last-child h5 {
+        border: none;
+    }
+
+}
+
+/* --- POST BOX --- */
+.post-box {
+    margin: 2.5rem auto 1rem auto;
+    padding: 2rem 3rem;
+    border-radius: .3rem;
+    box-shadow: 0 0 2rem rgba(0,0,0,0.5);
+    background: #fff;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 60rem;
+
+    h1, h2 {
+        text-align: center;
+    }
+
+    a {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        width: auto;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .post-title {
+        text-align: center;
+        margin-top: 1.5rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .top-date {
+        text-align: left;
+        color: #a0a0a0;
+    }
+}
+
+.last-modification-date {
+    text-transform: uppercase;
+    color: #a0a0a0;
+    font-size: .8rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* --- FOOTER --- */
+.footer {
+    text-align: center;
+
+    p {
+        margin: 0.5rem auto;
+        color: #a0a0a0;
+    }
+
+    p:first-child {
+        margin-top: 1.5rem;
+    }
+
+    p:last-child {
+        margin-bottom: 1.5rem;
+    }
+}

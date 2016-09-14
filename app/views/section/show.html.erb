@@ -1,0 +1,13 @@
+<% subsections = @section.subsections %>
+<% if subsections %>
+    <% subsections.each do |sub| %>
+        <%= render "shared/subsection", subsection: sub %>
+    <% end %>
+<% end %>
+
+<% posts = Post.where(section_id: @section.id, subsection_id: nil) %>
+<% if posts %>
+    <% posts.each do |p| %>
+        <%= render "shared/post", post: p, with_title: true %>
+    <% end %>
+<% end %>

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get "/tags/:tag", to: "posts#show_by_tag"
 
   get "/:section", to: "section#show"
-  get "/:section/:post", to: "post#show"
+  get "/:section/:subsection", to: "section#show_subsection"
+  get "/:section/:subsection/:post", to: "posts#show"
 end

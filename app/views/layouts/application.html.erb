@@ -14,9 +14,9 @@
             <% end %>
         </div>
         <div class="links-banner">
-            <% Category.all.order(:order).find_each do |c| %>
-                <a href="/<%= c.name %>">
-                    <h5 <%= c.name == params["category"] ? 'class=selected' : "" %>><%= c.title %></h5>
+            <% Section.all.order(:order).find_each do |s| %>
+                <a href="/<%= s.slug %>">
+                    <h5 <%= s.slug == params[:section] ? 'class=selected' : "" %>><%= s.name %></h5>
                 </a>
             <% end %>
         </div>
