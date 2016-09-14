@@ -142,14 +142,44 @@ a:hover {
     .description {
         text-align: center;
     }
+
+    .last-modification-date {
+        text-transform: uppercase;
+        color: #a0a0a0;
+        font-size: .8rem;
+        text-align: center;
+        margin-top: 2rem;
+    }
 }
 
-.last-modification-date {
-    text-transform: uppercase;
-    color: #a0a0a0;
-    font-size: .8rem;
-    text-align: center;
-    margin-top: 2rem;
+.related-posts-box {
+    margin-top: 4rem;
+    position: relative;
+
+
+    .top-button-wrapper {
+        text-align: center;
+        position: absolute;
+        top: -1.5rem;
+        height: 2.6rem;
+        left: 0;
+        right: 0;
+
+        .top-button {
+            margin: 0 auto;
+            padding: 0.8rem;
+            background: #000;
+            border: 1px solid #000;
+            border-radius: .5rem;
+            color: #fff;
+            display: inline-block;
+        }
+        .top-button:hover {
+            text-decoration: none;
+            background: #fff;
+            color: #000;
+        }
+    }
 }
 
 /* --- FOOTER --- */
