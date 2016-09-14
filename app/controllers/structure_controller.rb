@@ -52,8 +52,9 @@ class StructureController < ApplicationController
   end
 
   def store_subsections(section, subsections)
+    subsections = [subsections] unless subsections.is_a? Array
     subsections.each do |sub|
-      unless Subsection.where(section_id: section.id).where(slug: sub["slug"]).count > 0
+      unless Subsection.where(section_id: section.id, slug: sub["slug"]).count > 0
         Subsection.new(section_id: section.id, name: sub["name"],
                        slug: sub["slug"], display: sub["display"])
           .save
