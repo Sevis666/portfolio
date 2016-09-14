@@ -1,16 +1,21 @@
 class SectionController < ApplicationController
+  @@default_title = 'David ROBIN'
+  @@default_subtitle = 'Description'
+
   def default
     load_renderer
     @section = Section.order(:order).take
     params[:section] = @section.slug
-    @title = "Welcome to sevis's portfolio"
+    @title = @@default_title
+    @subtitle = @@default_subtitle
     render action: "show"
   end
 
   def show
     load_renderer
     @section = Section.find_by(slug: params[:section])
-    @title = "Welcome to sevis's portfolio"
+    @title = @@default_title
+    @subtitle = @@default_subtitle
   end
 
   def show_subsection
