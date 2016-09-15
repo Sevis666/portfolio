@@ -2,7 +2,6 @@
     line-height: 1.5;
     color: #333;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 16px;
     line-height: 1.5;
     word-wrap: break-word;
 
@@ -32,59 +31,59 @@
 
 /* --- TYPOGRAPHY --- */
     h1, h2, h3, h4, h5, h6 {
-        margin-top: 1.6em;
-        margin-bottom: 1em;
+        margin-top: 1.6rem;
+        margin-bottom: 1rem;
         font-weight: 600;
         line-height: 1.25;
     }
 
     h1 {
-        margin: 0.67em 0;
-        padding-bottom: 0.3em;
-        font-size: 2em;
+        margin: 0.67rem 0;
+        padding-bottom: 0.3rem;
+        font-size: 2rem;
         border-bottom: 1px solid #eee;
     }
 
     h2 {
         font-weight: 600;
-        padding-bottom: 0.3em;
-        font-size: 1.5em;
+        padding-bottom: 0.3rem;
+        font-size: 1.5rem;
         border-bottom: 1px solid #eee;
     }
 
     h3 {
         font-weight: 600;
-        font-size: 1.25em;
+        font-size: 1.25rem;
     }
 
     h4 {
         font-weight: 600;
-        font-size: 1em;
+        font-size: 1rem;
     }
 
     h5 {
         font-weight: 600;
-        font-size: 0.875em;
+        font-size: 0.875rem;
     }
 
     h6 {
         font-weight: 600;
-        font-size: 0.85em;
+        font-size: 0.85rem;
         color: #777;
     }
 
     p {
         margin-top: 0;
-        margin-bottom: 10px;
+        margin-bottom: .8rem;
     }
 
 /* --- SEPARATION MARKERS --- */
     hr {
         box-sizing: content-box;
         overflow: hidden;
-        height: 0.25em;
+        height: 0.25rem;
         padding: 0;
-        margin: 1.6em 0;
+        margin: 1.6rem 0;
         background-color: #e7e7e7;
         border: 0;
     }
@@ -111,37 +110,37 @@
 /* --- BLOCKQUOTES AND CODE --- */
     code, kbd, pre {
         font-family: monospace, monospace;
-        font-size: 1em;
+        font-size: 1.2rem;
     }
 
     code {
         font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
         padding: 0;
-        padding-top: 0.2em;
-        padding-bottom: 0.2em;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
         margin: 0;
         font-size: 85%;
         background-color: rgba(0,0,0,0.04);
-        border-radius: 3px;
+        border-radius: .1rem;
     }
 
     code::before,
     code::after {
-        letter-spacing: -0.2em;
+        letter-spacing: -0.2rem;
         content: "\00a0";
     }
 
     pre {
         word-wrap: normal;
-        padding: 16px;
+        padding: 1rem;
         overflow: auto;
         font-size: 85%;
         line-height: 1.45;
         background-color: #f7f7f7;
-        border-radius: 3px;
+        border-radius: .1rem;
         margin-top: 0;
         margin-bottom: 0;
-        font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 
         code {
             display: inline;
@@ -170,23 +169,23 @@
 
     kbd {
         display: inline-block;
-        padding: 3px 5px;
-        font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-        line-height: 10px;
+        padding: .1rem .15rem;
+        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: .8rem;
         color: #555;
         vertical-align: middle;
         background-color: #fcfcfc;
         border: solid 1px #ccc;
         border-bottom-color: #bbb;
-        border-radius: 3px;
+        border-radius: .1rem;
         box-shadow: inset 0 -1px 0 #bbb;
     }
 
     blockquote {
         margin: 0;
-        padding: 0 1em;
+        padding: 0 1rem;
         color: #777;
-        border-left: 0.25em solid #ddd;
+        border-left: 0.25rem solid #ddd;
     }
 
     blockquote>:first-child {
@@ -253,15 +252,15 @@
 
         dt {
             padding: 0;
-            margin-top: 16px;
-            font-size: 1em;
+            margin-top: 1rem;
+            font-size: 1rem;
             font-style: italic;
             font-weight: bold;
         }
 
         dd {
-            padding: 0 16px;
-            margin-bottom: 16px;
+            padding: 0 1rem;
+            margin-bottom: 1rem;
         }
     }
 
@@ -270,7 +269,7 @@
     }
 
     ul, ol {
-        padding-left: 2em;
+        padding-left: 2rem;
         margin-top: 0;
         margin-bottom: 0;
 
@@ -290,15 +289,15 @@
 
     p, blockquote, ul, ol, dl, table, pre {
         margin-top: 0;
-        margin-bottom: 16px;
+        margin-bottom: 1rem;
     }
 
     li>p {
-        margin-top: 16px;
+        margin-top: 1rem
     }
 
     li+li {
-        margin-top: 0.25em;
+        margin-top: 0.25rem;
     }
 
     * {
