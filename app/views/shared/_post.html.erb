@@ -5,7 +5,7 @@
         <% subsection = post.subsection_id.nil? ? nil : Subsection.find(post.subsection_id) %>
 
         <p class="date"><%= post.creation_date.strftime("%B %d, %Y") %> by David</p>
-        <% link = section.slug + '/' + post.slug %>
+        <% link = '/' + section.slug + '/' + (subsection.nil? ? '' : subsection.slug + '/') + post.slug %>
         <h2 class="title"><%= link_to post.name, link %></h2>
         <% if (with_location ||= false) %>
             <% location = section.name  + (subsection.nil? ? '' : ' / ' + subsection.name)%>
