@@ -102,7 +102,7 @@ class StructureController < ApplicationController
         tags.each do |tagname|
           tag = Tag.find_by(slug: tagname) || Tag.new(slug: tagname)
           tag.save
-          p.tags << tag
+          p.tags << tag unless p.tags.include? tag
         end
       end
     end
