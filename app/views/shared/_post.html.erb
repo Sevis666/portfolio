@@ -1,9 +1,17 @@
 <% file = File.open(Rails.root.to_s + "/data/" + post.path + '/' + post.slug + ".md") %>
 <div class="post-box markdown-body">
     <% if (with_title ||= false) %>
+        <% section = Section.find(post.section_id) %>
+        <% subsection = post.subsection_id.nil? ? nil : Subsection.find(post.subsection_id) %>
+
         <p class="date"><%= post.creation_date.strftime("%B %d, %Y") %> by David</p>
-        <% link = Section.find(post.section_id).slug + '/' + post.slug %>
+        <% link = section.slug + '/' + post.slug %>
         <h2 class="title"><%= link_to post.name, link %></h2>
+        <% if (with_location ||= false) %>
+            <% location = section.name  + (subsection.nil? ? '' : ' / ' + subsection.name)%>
+            <% link =  '/' + section.slug + (subsection.nil? ? '' : '/' + subsection.slug) %>
+            <p class="location">Posted in <%= link_to location, link %></p>
+        <% end %>
     <% end %>
     <%= @markdown.render(file.read).html_safe %>
 

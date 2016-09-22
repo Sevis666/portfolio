@@ -5,9 +5,10 @@
     <% end %>
 <% end %>
 
-<% posts = Post.where(section_id: @section.id, subsection_id: nil) %>
+<% posts = @section.fetch_posts %>
+<% with_location = @section.display.nil? || @section.display.split(':').include?('global') %>
 <% if posts %>
     <% posts.each do |p| %>
-        <%= render "shared/post", post: p, with_title: true %>
+        <%= render "shared/post", post: p, with_title: true, with_location: with_location %>
     <% end %>
 <% end %>
