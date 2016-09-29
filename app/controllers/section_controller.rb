@@ -1,6 +1,6 @@
 class SectionController < ApplicationController
   @@default_title = 'David ROBIN'
-  @@default_subtitle = 'Description'
+  @@default_subtitle = 'Cybersecurity enthusiast'
 
   def default
     load_renderer
