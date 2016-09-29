@@ -28,4 +28,8 @@ class Post < ActiveRecord::Base
       .execute("SELECT p.* FROM posts p INNER JOIN related_posts r ON r.related_post_id = p.id WHERE r.post_id = #{id}")
       .map {|p| Post.new(p) }
   end
+
+  def has_image?
+    not (image_name.nil? || image_name == "")
+  end
 end

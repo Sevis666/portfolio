@@ -103,7 +103,7 @@ a:hover {
 }
 
 /* --- POST BOX --- */
-.post-box, .subsection-box, .related-posts-box {
+.post-box-wrapper, .subsection-box-wrapper, .related-posts-box {
     margin: 2.5rem auto 1rem auto;
     padding: 2.5rem 3rem;
     border-radius: .3rem;
@@ -158,6 +158,28 @@ a:hover {
         text-align: center;
         margin-top: 2rem;
     }
+}
+
+.subsection-box-wrapper, .post-box-wrapper {
+    padding: 0;
+    overflow: hidden;
+
+    > .img-wrapper {
+        width: 100%;
+        max-height: 20rem;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+.subsection-box {
+    padding: 2.5rem 3rem;
+}
+.post-box {
+    padding: 2.5rem 3rem;
 }
 
 .related-posts-box {

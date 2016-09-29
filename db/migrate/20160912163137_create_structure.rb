@@ -12,6 +12,7 @@ class CreateStructure < ActiveRecord::Migration
       t.string :slug
       t.string :name
       t.string :display
+      t.string :image_name
     end
 
     create_table :tags do |t|
@@ -33,6 +34,7 @@ class CreateStructure < ActiveRecord::Migration
       t.date :creation_date
       t.date :last_modification_date
       t.string :path
+      t.string :image_name
     end
 
     create_table :related_posts do |t|

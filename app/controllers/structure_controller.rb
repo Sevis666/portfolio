@@ -56,7 +56,8 @@ class StructureController < ApplicationController
     subsections.each do |sub|
       unless Subsection.where(section_id: section.id, slug: sub["slug"]).count > 0
         Subsection.new(section_id: section.id, name: sub["name"],
-                       slug: sub["slug"], display: sub["display"])
+                       slug: sub["slug"], display: sub["display"],
+                       image_name: sub["image_name"])
           .save
       end
     end
@@ -80,7 +81,9 @@ class StructureController < ApplicationController
       lmd = str.nil? ? Date.today : Date.parse(str)
 
       p = Post.find_by(slug: slug, path: path) ||
-          Post.new(slug: slug, path: path, section_id: section.id, subsection_id: subsection.nil? ? nil : subsection.id)
+          Post.new(slug: slug, path: path, section_id: section.id,
+                   subsection_id: subsection.nil? ? nil : subsection.id,
+                   image_name: info["image_name"])
       p.name = info["name"]
       p.creation_date = cd
       p.last_modification_date = lmd

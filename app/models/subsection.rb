@@ -11,4 +11,8 @@ class Subsection < ActiveRecord::Base
       Post.where(section_id: section_id, subsection_id: id)
     end
   end
+
+  def has_image?
+    not (image_name.nil? || image_name == "")
+  end
 end

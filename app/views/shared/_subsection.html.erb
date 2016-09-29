@@ -1,7 +1,18 @@
-<div class="subsection-box">
-    <h2 class="title">
-        <%= link_to subsection.name,
-        Section.find(subsection.section_id).slug + '/' + subsection.slug %>
-    </h2>
-    <p class="description">Some short description of the subsection</p>
+<% section = Section.find(subsection.section_id) %>
+<div class="subsection-box-wrapper">
+    <% if subsection.has_image? %>
+        <div class="img-wrapper">
+            <% if subsection.image_name =~ /^https?:\/\// %>
+                <img src="<%= subsection.image_name %>">
+            <% else %>
+                <%= image_tag(subsection.image_name) %>
+            <% end %>
+        </div>
+    <% end %>
+    <div class="subsection-box">
+        <h2 class="title">
+            <%= link_to subsection.name, section.slug + '/' + subsection.slug %>
+        </h2>
+        <p class="description">Some short description of the subsection</p>
+    </div>
 </div>
