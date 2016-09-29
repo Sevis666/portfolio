@@ -16,14 +16,15 @@
 
         <p class="date"><%= post.creation_date.strftime("%B %d, %Y") %> by David</p>
         <% link = '/' + section.slug + '/' + (subsection.nil? ? '' : subsection.slug + '/') + post.slug %>
-        <h2 class="title"><%= link_to post.name, link %></h2>
+        <% name = ERB::Util.html_escape(post.name).gsub(/&amp;([[:alpha:]]+);/, '&\1;') %>
+        <h2 class="title"><%= link_to name.html_safe, link %></h2>
         <% if (with_location ||= false) %>
             <% location = section.name  + (subsection.nil? ? '' : ' / ' + subsection.name)%>
             <% link =  '/' + section.slug + (subsection.nil? ? '' : '/' + subsection.slug) %>
             <p class="location">Posted in <%= link_to location, link %></p>
         <% end %>
     <% end %>
-    <%= @markdown.render(file.read).html_safe %>
+    <%= @markdown.render(file.read).gsub(/&amp;([[:alpha:]]+);/, '&\1;').html_safe %>
 
     <% tags = post.tags %>
     <% unless tags.empty? %>
