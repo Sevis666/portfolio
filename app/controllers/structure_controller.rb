@@ -57,7 +57,8 @@ class StructureController < ApplicationController
       unless Subsection.where(section_id: section.id, slug: sub["slug"]).count > 0
         Subsection.new(section_id: section.id, name: sub["name"],
                        slug: sub["slug"], display: sub["display"],
-                       image_name: sub["image_name"])
+                       image_name: sub["image_name"],
+                       description: sub["description"])
           .save
       end
     end

@@ -11,6 +11,7 @@ class CreateStructure < ActiveRecord::Migration
       t.belongs_to :section
       t.string :slug
       t.string :name
+      t.string :description
       t.string :display
       t.string :image_name
     end
