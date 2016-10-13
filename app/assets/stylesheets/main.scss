@@ -52,7 +52,7 @@ sans-serif {
 .header {
     box-sizing: border-box;
     margin: 0;
-    padding: 5rem 1rem 3rem 1rem;
+    padding: 1rem .2rem 1rem .2rem;
     width: 100%;
     background: #000;
     background-image: url(image-path("texture.jpg"));
@@ -112,7 +112,6 @@ sans-serif {
 .post-box-wrapper, .subsection-box-wrapper, .related-posts-box {
     margin: 2.5rem auto 1rem auto;
     padding: 2.5rem 3rem;
-    border-radius: .3rem;
     box-shadow: 0 0 2rem rgba(0,0,0,0.5);
     background: #fff;
     box-sizing: border-box;
@@ -181,11 +180,8 @@ sans-serif {
         }
     }
 }
-.subsection-box {
-    padding: 2.5rem 3rem;
-}
-.post-box {
-    padding: 2.5rem 3rem;
+.post-box, .subsection-box {
+    padding: 1.5rem .5rem;
 }
 
 .related-posts-box {
@@ -255,5 +251,33 @@ sans-serif {
 
     p:last-child {
         margin-bottom: 1.5rem;
+    }
+}
+
+/* --- MEDIA QUERIES --- */
+@media all and (min-width: 60rem) {
+    .post-box-wrapper, .subsection-box-wrapper, .related-posts-box {
+        border-radius: .3rem;
+    }
+}
+
+@media all and (min-width: 70rem) {
+    .post-box, .subsection-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .header {
+        padding: 3rem .5rem 2rem .5rem;
+    }
+
+}
+
+@media all and (min-width: 80rem) {
+    .post-box, .subsection-box {
+        padding: 2.5rem 3rem;
+    }
+
+    .header {
+        padding: 5rem 1rem 3rem 1rem;
     }
 }
