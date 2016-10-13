@@ -254,6 +254,47 @@ sans-serif {
     }
 }
 
+/* --- TOKEN FORM --- */
+#token-form {
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+
+    input[type="text"] {
+        border-radius: 0;
+        border: 1px solid #000;
+        margin: 0;
+        padding: .5rem 1rem;
+        border-bottom-left-radius: .2rem;
+        border-top-left-radius: .2rem;
+    }
+
+    input[type="submit"] {
+        border-radius: 0;
+        border: 1px solid #000;
+        margin: 0;
+        padding: .5rem 1rem;
+        border-left: none;
+        border-bottom-right-radius: .2rem;
+        border-top-right-radius: .2rem;
+        color: #000;
+        background: #f2f2f2;
+    }
+}
+
+/* --- ERROR BOX --- */
+.warning {
+    text-align: center;
+    margin: 1rem;
+}
+
+.error-message {
+    color: #e00;
+    font-weight: bold;
+}
+
 /* --- MEDIA QUERIES --- */
 @media all and (min-width: 60rem) {
     .post-box-wrapper, .subsection-box-wrapper, .related-posts-box {

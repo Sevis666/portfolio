@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   get "/", to: "section#default"
 
   get "/public/7715d3b3.asc", to: "static#pgp_key"
-  get "/reload", to: "structure#reload"
+  get "/admin", to: "admin#main"
+  get "/admin/token", to: "admin#give_token"
+  post "/admin/token", to: "admin#give_token"
+  get "/admin/reload", to: "admin#reload_structure"
 
   get "/category", to: "structure#list_categories"
   get "/category/:category", to: "posts#show_by_category"

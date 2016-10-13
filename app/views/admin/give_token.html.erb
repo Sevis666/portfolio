@@ -1,0 +1,10 @@
+<% if @error %>
+    <div class="warning">
+        <p class="error-message"><%= @error %></p>
+    </div>
+<% end %>
+
+<%= form_tag("/admin/token", method: "post", id: "token-form") do %>
+    <%= text_field_tag(:key, nil, placeholder: "Insert your key", autocomplete: "off") %>
+    <%= submit_tag ("Send") %>
+<% end %>
