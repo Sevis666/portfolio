@@ -111,7 +111,7 @@ sans-serif {
 /* --- POST BOX --- */
 .post-box-wrapper, .subsection-box-wrapper, .related-posts-box {
     margin: 2.5rem auto 1rem auto;
-    padding: 2.5rem 3rem;
+    padding: 1.5rem .5rem;
     box-shadow: 0 0 2rem rgba(0,0,0,0.5);
     background: #fff;
     box-sizing: border-box;
@@ -188,7 +188,6 @@ sans-serif {
     margin-top: 4rem;
     position: relative;
 
-
     .top-button-wrapper {
         text-align: center;
         position: absolute;
@@ -211,6 +210,18 @@ sans-serif {
             background: #fff;
             color: #000;
         }
+    }
+
+    .related-post {
+        border-bottom: 1px solid #ccc;
+
+        .title {
+            margin: 1rem;
+        }
+    }
+
+    .related-post:last-child {
+        border: none;
     }
 }
 
@@ -307,6 +318,10 @@ sans-serif {
         padding: 2rem 1.5rem;
     }
 
+    .related-posts-box {
+        padding: 2rem 2rem 1rem 2rem;
+    }
+
     .header {
         padding: 3rem .5rem 2rem .5rem;
     }
@@ -316,6 +331,10 @@ sans-serif {
 @media all and (min-width: 80rem) {
     .post-box, .subsection-box {
         padding: 2.5rem 3rem;
+    }
+
+    .related-posts-box {
+        padding: 2rem 3rem 1rem 3rem;
     }
 
     .header {

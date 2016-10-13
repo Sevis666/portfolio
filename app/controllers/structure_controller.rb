@@ -95,8 +95,11 @@ class StructureController < ApplicationController
         related = [related] unless related.is_a? Array
         related.each do |rp|
           r = Post.find_by_path(rp)
-          RelatedPost.new(post_id: p.id, related_post_id: r.id)
-            .save unless r.nil?
+          unless r.nil?
+            previous = RelatedPost.find_by(post_id: p.id, related_post_id: r.id)
+            RelatedPost.new(post_id: p.id, related_post_id: r.id)
+              .save if previous.nil?
+          end
         end
       end
 
