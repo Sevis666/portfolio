@@ -117,12 +117,11 @@
 
 /* --- BLOCKQUOTES AND CODE --- */
     code, kbd, pre {
-        font-family: monospace, monospace;
+        font-family: monospace, Ruboto, sans-serif;
         font-size: 1.2rem;
     }
 
     code {
-        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
         padding: 0;
         padding-top: 0.2rem;
         padding-bottom: 0.2rem;
@@ -148,7 +147,6 @@
         border-radius: .1rem;
         margin-top: 0;
         margin-bottom: 0;
-        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 
         code {
             display: inline;
@@ -178,7 +176,6 @@
     kbd {
         display: inline-block;
         padding: .1rem .15rem;
-        font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
         line-height: .8rem;
         color: #555;
         vertical-align: middle;
