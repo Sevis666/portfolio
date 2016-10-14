@@ -175,7 +175,9 @@ sans-serif {
         overflow: hidden;
 
         img {
-            width: 100%;
+            position: relative;
+            width: 130%;
+            margin-left: -15%;
             height: auto;
         }
     }
@@ -307,9 +309,32 @@ sans-serif {
 }
 
 /* --- MEDIA QUERIES --- */
+@media all and (min-width: 40rem) {
+    .post-box-wrapper, .subsection-box-wrapper, .related-posts-box {
+        > .img-wrapper img {
+            width: 120%;
+            margin-left: -10%;
+        }
+    }
+}
+
+@media all and (min-width: 50rem) {
+    .post-box-wrapper, .subsection-box-wrapper, .related-posts-box {
+        > .img-wrapper img {
+            width: 110%;
+            margin-left: -5%;
+        }
+    }
+}
+
 @media all and (min-width: 60rem) {
     .post-box-wrapper, .subsection-box-wrapper, .related-posts-box {
         border-radius: .3rem;
+
+        > .img-wrapper img {
+            width: 100%;
+            margin-left: 0;
+        }
     }
 }
 
