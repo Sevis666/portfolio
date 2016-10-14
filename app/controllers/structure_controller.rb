@@ -54,13 +54,13 @@ class StructureController < ApplicationController
   def store_subsections(section, subsections)
     subsections = [subsections] unless subsections.is_a? Array
     subsections.each do |sub|
-      unless Subsection.where(section_id: section.id, slug: sub["slug"]).count > 0
-        Subsection.new(section_id: section.id, name: sub["name"],
-                       slug: sub["slug"], display: sub["display"],
-                       image_name: sub["image_name"],
-                       description: sub["description"])
-          .save
-      end
+      s = Subsection.find_by(section_id: section.id, slug: sub["slug"]) ||
+          Subsection.new(section_id: section.id, slug: sub["slug"])
+      s.name = sub["name"]
+      s.display = sub["display"]
+      s.image_name = sub["image_name"]
+      s.description = sub["description"]
+      s.save
     end
   end
 
@@ -83,9 +83,9 @@ class StructureController < ApplicationController
 
       p = Post.find_by(slug: slug, path: path) ||
           Post.new(slug: slug, path: path, section_id: section.id,
-                   subsection_id: subsection.nil? ? nil : subsection.id,
-                   image_name: info["image_name"])
+                   subsection_id: subsection.nil? ? nil : subsection.id)
       p.name = info["name"]
+      p.image_name = info["image_name"]
       p.creation_date = cd
       p.last_modification_date = lmd
       p.save
