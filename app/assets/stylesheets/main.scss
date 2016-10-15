@@ -48,21 +48,35 @@ sans-serif {
     font-family: Ruboto, sans-serif;
 }
 
+/* --- ANIMATIONS --- */
+$cycling-colors-properties: background-color color;
+$colors: #18ffff #64ffda #00e676 #76ff03 #c6ff00 #ffea00 #ff6e40 #ff5252 #ff4081 #e040fb #7c4dff ;
+
+@each $property in $cycling-colors-properties {
+    @keyframes #{$property}-change {
+        @each $color in $colors {
+            #{(index($colors, $color)-1) * 9}% { #{$property}: $color; }
+        }
+    }
+}
+
 /* --- HEADER --- */
 .header {
     box-sizing: border-box;
     margin: 0;
     padding: 1rem .2rem 1rem .2rem;
     width: 100%;
-    background: #000;
-    background-image: url(image-path("texture.jpg"));
+    background: #18ffff;
+    background-image: url(image-path("texture.png"));
     background-repeat: repeat;
     color: #fff;
     text-align: center;
     overflow: hidden;
 
+    animation: background-color-change 25s infinite;
+
     h1, h2 {
-        text-shadow: 2px 2px 6px #000;
+        text-shadow: 0px 0px 20px #000;
     }
 
     h1 {
@@ -99,7 +113,8 @@ sans-serif {
     }
 
     h5.selected {
-        color: #86b6d6;
+        color: #18ffff;
+        animation: color-change 25s infinite;
     }
 
     a:last-child h5 {
