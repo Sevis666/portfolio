@@ -2,6 +2,10 @@ class Section < ActiveRecord::Base
   has_many :subsections
   has_many :posts
 
+  def has_subtitle?
+    not subtitle.nil?
+  end
+
   def fetch_posts
     case display
     when "global:all_posts"

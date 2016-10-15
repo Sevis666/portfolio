@@ -1,3 +1,7 @@
+<% if @section.has_subtitle? %>
+    <h2 class="section-subtitle"><%= @section.subtitle %></h2>
+<% end %>
+
 <% subsections = @section.subsections %>
 <% if subsections %>
     <% subsections.each do |sub| %>

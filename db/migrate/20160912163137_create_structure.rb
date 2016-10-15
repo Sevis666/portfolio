@@ -5,6 +5,7 @@ class CreateStructure < ActiveRecord::Migration
       t.string :slug
       t.string :name
       t.string :display
+      t.string :subtitle
     end
 
     create_table :subsections do |t|

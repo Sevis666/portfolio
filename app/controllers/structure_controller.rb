@@ -37,14 +37,13 @@ class StructureController < ApplicationController
 
   def store_sections(sections)
     sections.each do |s|
-      unless Section.where(slug: s["slug"]).count > 0
-        section = Section.new(name: s["name"], slug: s["slug"],
-                              order: s["order"].to_i,
-                              display: s["display"])
-        section.save
-      else
-        section = Section.find_by(slug: s["slug"])
-      end
+      section = Section.find_by(slug: s["slug"]) || Section.new(slug: s["slug"])
+      section.name = s["name"]
+      section.order = s["order"].to_i
+      section.display = s["display"]
+      section.subtitle = s["subtitle"]
+      section.save
+
       if s["subsections"]
         store_subsections(section, s["subsections"]["subsection"])
       end
