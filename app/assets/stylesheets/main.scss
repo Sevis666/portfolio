@@ -73,7 +73,7 @@ $colors: #18ffff #64ffda #00e676 #76ff03 #c6ff00 #ffea00 #ff6e40 #ff5252 #ff4081
     text-align: center;
     overflow: hidden;
 
-    animation: background-color-change 25s infinite;
+    animation: background-color-change 25s 12;
 
     h1, h2 {
         text-shadow: 0px 0px 20px #000;
@@ -114,7 +114,7 @@ $colors: #18ffff #64ffda #00e676 #76ff03 #c6ff00 #ffea00 #ff6e40 #ff5252 #ff4081
 
     h5.selected {
         color: #18ffff;
-        animation: color-change 25s infinite;
+        animation: color-change 25s 12;
     }
 
     a:last-child h5 {
