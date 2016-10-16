@@ -1,7 +1,7 @@
 # Sevis's Portfolio
 
 This website is meant to be completely independant from its content, but it was
-was designed to hold David ROBIN's portfolio. Its content should be located in
+designed to hold David ROBIN's portfolio. Its content should be located in
 the /data directory, which must contain a structure.xml file.
 
 Each post consists of a mardown file and an xml file containing the relevant
