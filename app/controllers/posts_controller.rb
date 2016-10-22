@@ -7,7 +7,7 @@ class PostsController < ApplicationController
                          subsection_id: subsection.nil? ? nil : subsection.id,
                          slug: params[:post])
     @title = @post.name
-    @subtitle = @post.creation_date.strftime("%B %d, %Y")
+    @subtitle = @post.printable_creation_date
   end
 
   def show_by_category
