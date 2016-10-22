@@ -14,5 +14,9 @@ class PostsController < ApplicationController
   end
 
   def show_by_tag
+    @title = "David ROBIN"
+    @subtitle = "Tag archive"
+    @tag = Tag.find_by(slug: params[:tag])
+    @posts = Post.joins(:tags).where(tags: {slug: params[:tag]})
   end
 end

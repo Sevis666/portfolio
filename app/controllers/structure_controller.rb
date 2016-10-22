@@ -4,6 +4,8 @@ class StructureController < ApplicationController
   end
 
   def list_tags
+    @title = "David ROBIN"
+    @subtitle = "Tag archive"
     @tags = Tag.all.order(:name)
   end
 

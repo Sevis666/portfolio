@@ -1,0 +1,4 @@
+<h2 class="section-subtitle">Posts by tag : <%= @tag.name %></h2>
+<% @posts.each do |post| %>
+    <%= render "shared/post_overview", post: post %>
+<% end %>
