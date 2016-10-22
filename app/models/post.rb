@@ -53,7 +53,7 @@ class Post < ActiveRecord::Base
 
   private
   def format_date date, short: false
-    str = :short ? "%b %d, %Y" : "%B %d, %Y"
+    str = short ? "%b %d, %Y" : "%B %d, %Y"
     date.strftime(str)
   end
 end
