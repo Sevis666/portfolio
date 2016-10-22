@@ -39,6 +39,11 @@ a:hover {
     text-decoration: underline;
 }
 
+a.nomargin {
+    margin: 0;
+    padding: 0;
+}
+
 .small {
     line-height: 1.2rem;
     font-size: 1rem;
@@ -146,6 +151,9 @@ $colors: #18ffff #64ffda #00e676 #76ff03 #c6ff00 #ffea00 #ff6e40 #ff5252 #ff4081
     a {
         margin: 0;
         padding: 0;
+    }
+
+    a:not(.nocolor) {
         color: #4078c0;
     }
 
