@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width">
         <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Fjord+One", media: 'all', 'data-turbolinks-track' => true %>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, async: 'true' %>
         <%= javascript_include_tag 'https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML', async: true, media: 'all' %>
         <%= csrf_meta_tags %>
     </head>
@@ -31,9 +31,5 @@
             <p><i>Made by hand</i> by David ROBIN</p>
             <p>Thanks for visiting</p>
         </div>
-        <script type="text/javascript">
-         hljs.initHighlighting.called = false;
-         hljs.initHighlighting();
-        </script>
     </body>
 </html>
