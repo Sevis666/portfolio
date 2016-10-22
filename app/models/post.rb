@@ -32,4 +32,28 @@ class Post < ActiveRecord::Base
   def has_image?
     not (image_name.nil? || image_name == "")
   end
+
+  def printable_name
+    ERB::Util.html_escape(name).gsub(/&amp;([[:alpha:]]+);/, '&\1;')
+  end
+
+  def printable_creation_date
+    format_date creation_date
+  end
+
+  def printable_update_date
+    format_date last_modification_date, short: true
+  end
+
+  def location
+    location = Section.find(section_id).name
+    location += ' / ' + Subsection.find(subsection_id).name unless subsection_id.nil?
+    location
+  end
+
+  private
+  def format_date date, short: false
+    str = :short ? "%b %d, %Y" : "%B %d, %Y"
+    date.strftime(str)
+  end
 end

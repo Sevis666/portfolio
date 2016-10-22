@@ -11,17 +11,10 @@
     <% end %>
     <div class="post-box markdown-body">
     <% if (with_title ||= false) %>
-        <% section = Section.find(post.section_id) %>
-        <% subsection = post.subsection_id.nil? ? nil : Subsection.find(post.subsection_id) %>
-
-        <p class="date"><%= post.creation_date.strftime("%B %d, %Y") %> by David</p>
-        <% link = '/' + section.slug + '/' + (subsection.nil? ? '' : subsection.slug + '/') + post.slug %>
-        <% name = ERB::Util.html_escape(post.name).gsub(/&amp;([[:alpha:]]+);/, '&\1;') %>
-        <h2 class="title"><%= link_to name.html_safe, link %></h2>
+        <p class="date"><%= post.printable_creation_date %> by David</p>
+        <h2 class="title"><%= link_to post.printable_name.html_safe, post.link %></h2>
         <% if (with_location ||= false) %>
-            <% location = section.name  + (subsection.nil? ? '' : ' / ' + subsection.name)%>
-            <% link =  '/' + section.slug + (subsection.nil? ? '' : '/' + subsection.slug) %>
-            <p class="location">Posted in <%= link_to location, link %></p>
+            <p class="location">Posted in <%= link_to post.location, post.link %></p>
         <% end %>
     <% end %>
     <%= @markdown.render(file.read).gsub(/&amp;([[:alpha:]]+);/, '&\1;').html_safe %>
@@ -36,7 +29,7 @@
     <% end %>
 
     <% if post.last_modification_date > post.creation_date %>
-        <p class="last-modification-date">Last updated on <%= post.last_modification_date.strftime("%b %d, %Y") %> by David</p>
+        <p class="last-modification-date">Last updated on <%= post.printable_update_date %> by David</p>
     <% end %>
     </div>
 </div>
