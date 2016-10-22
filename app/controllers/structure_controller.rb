@@ -106,7 +106,8 @@ class StructureController < ApplicationController
         tags = info["tags"]["tag"]
         tags = [tags] unless tags.is_a? Array
         tags.each do |tagname|
-          tag = Tag.find_by(slug: tagname) || Tag.new(slug: tagname)
+          tag = Tag.find_by(name: tagname) || Tag.new(name: tagname)
+          tag.slug = tag.name.downcase.gsub(' ', '-')
           tag.save
           p.tags << tag unless p.tags.include? tag
         end
