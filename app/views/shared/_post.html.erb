@@ -23,7 +23,7 @@
     <% unless tags.empty? %>
         <div class="tags-wrapper">
             <% tags.each do |tag| %>
-                <%= link_to (tag.name || tag.slug), '/tags/' + tag.slug, class: "tag" %>
+                <%= link_to tag.name, tag.link, class: "tag nocolor" %>
             <% end %>
         </div>
     <% end %>
