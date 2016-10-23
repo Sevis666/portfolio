@@ -155,7 +155,7 @@
         word-wrap: normal;
         padding: 1rem;
         overflow: auto;
-        font-size: 85%;
+        font-size: 100%;
         line-height: 1.45;
         background-color: #f7f7f7;
         border-radius: .1rem;
@@ -170,6 +170,11 @@
             word-wrap: normal;
             background-color: transparent;
             border: 0;
+
+            p {
+                margin: 0;
+                font-size: 100%;
+            }
         }
     }
     pre code::before,
