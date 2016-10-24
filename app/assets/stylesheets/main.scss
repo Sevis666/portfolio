@@ -302,6 +302,10 @@ $colors: #18ffff #64ffda #00e676 #76ff03 #c6ff00 #ffea00 #ff6e40 #ff5252 #ff4081
 
     .related-post:last-child {
         border: none;
+
+        p.location {
+            margin-bottom: .8rem;
+        }
     }
 }
 
