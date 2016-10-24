@@ -1,7 +1,7 @@
 class Subsection < ActiveRecord::Base
   has_many :posts
 
-  @@posts_by_page = 1
+  @@posts_by_page = 6
 
   def has_image?
     not (image_name.nil? || image_name == "")
@@ -24,7 +24,7 @@ class Subsection < ActiveRecord::Base
 
   def fetch_next_posts(offset = nil)
     offset = offset ? offset.to_i : 0
-    fetch_posts(offset + 1, @@posts_by_page)
+    fetch_posts(offset + 1, @@posts_by_page/2)
   end
 
   def link(with_offset: nil)
