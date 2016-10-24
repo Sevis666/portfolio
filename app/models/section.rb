@@ -48,6 +48,6 @@ class Section < ActiveRecord::Base
 
   def link_to_previous_page(page_number)
     page_number ||= 0
-    lnk(with_offset: page_number.to_i - 1)
+    link(with_offset: page_number.to_i - 1)
   end  
 end

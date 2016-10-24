@@ -1,5 +1,24 @@
-<% if @section.has_subtitle? %>
-    <h2 class="section-subtitle"><%= @section.subtitle %></h2>
+<% next_posts = @section.fetch_next_posts(params[:page]) %>
+<% has_previous = params[:page].to_i > 0
+   has_subtitle = @section.has_subtitle?
+   has_next     = not(next_posts.empty?) && has_previous%>
+
+<% if has_previous || has_subtitle || has_next %>
+    <div class="top-subtitles">
+        <h2 class="section-subtitle previous-page <%= has_previous ? nil:"hidden" %>">
+            <% if has_previous %>
+                <%= link_to "Previous page", @section.link_to_previous_page(params[:page]), class: "nomargin"%>
+            <% end %>
+        </h2>
+        <% if has_subtitle %>
+            <h2 class="section-subtitle"><%= @section.subtitle %></h2>
+        <% end %>
+        <h2 class="section-subtitle next-page <%= has_next ? nil:"hidden" %>">
+            <% if has_next %>
+                <%= link_to "Next page", @section.link_to_next_page(params[:page]), class: "nomargin"%>
+            <% end %>
+        </h2>
+    </div>
 <% end %>
 
 <% subsections = @section.subsections %>
@@ -17,7 +36,6 @@
     <% end %>
 <% end %>
 
-<% next_posts = @section.fetch_next_posts(params[:page]) %>
 <% unless next_posts.empty? %>
     <div class="related-posts-box">
         <div class="top-button-wrapper">

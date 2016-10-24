@@ -128,10 +128,59 @@ $colors: #18ffff #64ffda #00e676 #76ff03 #c6ff00 #ffea00 #ff6e40 #ff5252 #ff4081
 
 }
 
+.top-subtitles {
+    width: 100%;
+    margin: 0;
+    margin-top: 2.5rem;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
 .section-subtitle {
     color: #999;
     text-align: center;
-    margin-top: 2.5rem;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+    a {
+        color: #999;
+    }
+}
+
+.next-page, .previous-page {
+    font-size: 1.25rem;
+}
+.next-page::after {
+    content: "\02192";
+}
+
+.section-subtitle.hidden {
+    display: none;
+}
+
+.previous-page::before {
+    content: "\02190";
+}
+
+.next-page.hidden::after, .previous-page.hidden::before {
+    content: "";
+}
+
+@media all and (min-width: 50rem) {
+    .section-subtitle {
+        flex-basis: 30%;
+    }
+    .section-subtitle.hidden {
+        display: inline-block;
+    }
 }
 
 /* --- POST BOX --- */
