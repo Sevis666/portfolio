@@ -1,3 +1,18 @@
-<% @subsection.fetch_posts.each do |p| %>
+<% @subsection.fetch_posts(params[:page]).each do |p| %>
     <%= render "shared/post", post: p, with_title: true %>
+<% end %>
+
+<% next_posts = @subsection.fetch_next_posts(params[:page]) %>
+<% unless next_posts.empty? %>
+    <div class="related-posts-box">
+        <div class="top-button-wrapper">
+            <%= link_to "Show more", @subsection.link_to_next_page(params[:page]), class: "top-button" %>
+        </div>
+        <% next_posts.each do |p| %>
+            <div class="related-post">
+                <h2 class="title"><%= link_to p.printable_name, p.link %></h2>
+                <p class="location">Posted in <%= link_to p.location, p.link %></p>
+            </div>
+        <% end %>
+    </div>
 <% end %>

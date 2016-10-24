@@ -34,7 +34,7 @@ class Post < ActiveRecord::Base
   end
 
   def printable_name
-    ERB::Util.html_escape(name).gsub(/&amp;([[:alpha:]]+);/, '&\1;')
+    ERB::Util.html_escape(name).gsub(/&amp;([[:alpha:]]+);/, '&\1;').html_safe
   end
 
   def printable_creation_date
