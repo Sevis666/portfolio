@@ -10,25 +10,43 @@
         <%= csrf_meta_tags %>
     </head>
     <body>
-        <div class="header">
-            <h1><%= @title %></h1>
-            <% if @subtitle %>
-                <h2><%= @subtitle %></h2>
-            <% end %>
-        </div>
-        <div class="links-banner">
+        <main>
+            <div class="header">
+                <h1><%= @title %></h1>
+                <% if @subtitle %>
+                    <h2><%= @subtitle %></h2>
+                <% end %>
+            </div>
+            <div class="links-banner">
+                <% Section.all.order(:order).find_each do |s| %>
+                    <a href="/<%= s.slug %>">
+                        <h5 <%= s.slug == params[:section] ? 'class=selected' : "" %>><%= s.name %></h5>
+                    </a>
+                <% end %>
+            </div>
+            <div class="links-banner-alternative">
+                <h5 onclick="toggleSideMenu()">Menu</h5>
+            </div>
+
+            <%= yield %>
+
+            <div class="footer">
+                <p><i>Made by hand</i> by David ROBIN</p>
+                <p>Thanks for visiting</p>
+            </div>
+        </main>
+        <div id="side-menu">
+            <h2 class="hint">Where would you like to go ?</h2>
+            <hr/>
             <% Section.all.order(:order).find_each do |s| %>
                 <a href="/<%= s.slug %>">
                     <h5 <%= s.slug == params[:section] ? 'class=selected' : "" %>><%= s.name %></h5>
                 </a>
             <% end %>
-        </div>
-
-        <%= yield %>
-
-        <div class="footer">
-            <p><i>Made by hand</i> by David ROBIN</p>
-            <p>Thanks for visiting</p>
+            <hr/>
+            <a href="/tags"><h5>All tags</h5></a>
+            <a href="/posts"><h5>All posts</h5></a>
+            <h5 class="close" onclick="toggleSideMenu()">&#10006;</h5>
         </div>
 
         <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
