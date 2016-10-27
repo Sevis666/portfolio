@@ -467,6 +467,27 @@ main.side-menu-is-open {
     }
 }
 
+/* --- TEXT WRAPPERS --- */
+.split-text {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .left, .right {
+        flex-grow: 1;
+    }
+    .left {
+        text-align: left;
+        margin-bottom: .2rem;
+    }
+    .right {
+        text-align: right;
+        margin-top: .2rem;
+    }
+}
+
 /* --- TOKEN FORM --- */
 #token-form {
     margin: 1rem auto;

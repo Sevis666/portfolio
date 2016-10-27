@@ -1,0 +1,26 @@
+<% year = 0 ; month = 0 %>
+<% @posts.each do |post| %>
+    <% if post.creation_date.year != year %>
+        <% year = post.creation_date.year %>
+        <% month = 0 %>
+        <div class="top-subtitles">
+            <h2 class="section-subtitle"><%= year %></h2>
+        </div>
+    <% end %>
+    <% if month != post.creation_date.month %>
+        <% unless month == 0 %>
+            </div>
+            </div>
+        <% end %>
+        <% month = post.creation_date.month %>
+        <div class="post-box-wrapper">
+            <div class="post-box">
+                <h2><%= post.creation_date.strftime("%B") %></h2>
+    <% end %>
+    <div class="split-text">
+        <p class="left"><%= link_to post.printable_name, post.link %></p>
+        <p class="right"><%= post.location %></p>
+    </div>
+<% end %>
+</div>
+</div>

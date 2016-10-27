@@ -19,4 +19,10 @@ class PostsController < ApplicationController
     @tag = Tag.find_by(slug: params[:tag])
     @posts = Post.joins(:tags).where(tags: {slug: params[:tag]})
   end
+
+  def show_by_date
+    @title = "David ROBIN"
+    @subtitle = "All posts"
+    @posts = Post.all.order(creation_date: :desc, slug: :asc)
+  end
 end

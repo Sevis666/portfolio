@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "/tags", to: "structure#list_tags"
   get "/tags/:tag", to: "posts#show_by_tag"
 
+  get "/posts", to: "posts#show_by_date"
+
   get "/:section", to: "section#show"
   get "/:section/:subsection", to: "section#show_subsection"
   get "/:section/:subsection/:post", to: "posts#show"
