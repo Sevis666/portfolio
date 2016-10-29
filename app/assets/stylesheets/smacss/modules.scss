@@ -1,0 +1,236 @@
+@import "includes/helpers";
+
+/* --- SIDE MENU --- */
+main { z-index: 2; }
+
+#side-menu {
+    z-index: 1;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    overflow-y: auto;
+
+    a {
+        @extend .nomargin;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    h5 {
+        box-sizing: border-box;
+        width: 100%;
+        padding: .3rem 1.2rem;
+        margin: .3rem 0;
+        font-weight: bold;
+        @include text-size(1.2, 1.5);
+    }
+
+    .hint {
+        margin: .5rem auto;
+        padding: .5rem;
+        font-weight: bold;
+    }
+
+    hr {
+        width: 80%;
+        margin: 0 auto;
+        height: 0;
+        border: none;
+    }
+    .close {
+        margin: .5rem auto;
+        padding: 0;
+        box-sizing: border-box;
+        width: 2.5rem;
+        height: 2.5rem;
+        line-height: 2.4rem;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+}
+
+/* --- CARDS --- */
+.card {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 60rem;
+    padding: 0;
+    margin: .8rem auto 2.5rem auto;
+    @media all and (min-width: 61rem) { border-radius: .3rem; }
+
+    h1, h2, .location { text-align: center; }
+
+    p { text-align: justify; }
+
+    a { @extend .nomargin; }
+
+    img {
+        box-sizing:  border-box;
+        display: block;
+        margin: 0 auto;
+        width: auto;
+        height: auto;
+        border-radius: 3px;
+    }
+
+    .cover-image-wrapper {
+        width: 100%;
+        max-height: 20rem;
+        overflow: hidden;
+        img {
+            position: relative;
+            border-radius: 0;
+            height: auto;
+            width: 130%;
+            margin-left: -15%;
+            @media all and (min-width: 40rem) {
+                width: 120%;
+                margin-left: -10%;
+            }
+            @media all and (min-width: 50rem) {
+                width: 110%;
+                margin-left: -5%;
+            }
+            @media all and (min-width: 60rem) {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+
+    .title {
+        margin: 1rem .8rem 1.8rem .8rem;
+        @include text-size(1.8, 2.4);
+    }
+
+    .date { text-align: right; }
+
+    .location {
+        margin-top: -1rem;
+        margin-bottom: 1.8rem;
+    }
+
+    .description { text-align: center; }
+
+    .last-modification-date {
+        text-transform: uppercase;
+        @include text-size(1,1.2);
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    .content {
+        padding: 1.5rem .5rem;
+        @media all and (min-width: 60rem) { padding: 1.5rem   1rem; }
+        @media all and (min-width: 70rem) { padding:   2rem 1.5rem; }
+        @media all and (min-width: 80rem) { padding: 2.5rem   3rem; }
+    }
+
+    &:not(.has-top-button) {
+        overflow: hidden;
+    }
+
+    &.has-top-button {
+        padding: 1rem 0;
+        @media all and (min-width: 60rem) { padding: 1.5rem 1rem; }
+        @media all and (min-width: 70rem) { padding: 2rem 2rem 1rem 2rem; }
+        @media all and (min-width: 80rem) { padding: 2rem 3rem 1rem 3rem; }
+        margin-top: 4rem;
+        position: relative;
+
+        .top-button-wrapper {
+            text-align: center;
+            position: absolute;
+            top: -1.5rem;
+            height: 2.6rem;
+            left: 0;
+            right: 0;
+        }
+
+        .top-button {
+            margin: 0 auto;
+            padding: .8rem;
+            border-radius: .5rem;
+            display: inline-block;
+            &:hover { text-decoration: none; }
+        }
+    }
+}
+
+.related-post {
+    .title { margin: 1rem; }
+    &:last-child p.location { margin-bottom: .8rem; }
+}
+
+/* --- TAGS --- */
+.card .tags-wrapper {
+    margin: 1.5rem 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .tag {
+        @include text-size(1, 1.7);
+        text-transform: uppercase;
+        margin: .1rem .2rem;
+        padding: .1rem .3rem;
+        &:hover { text-decoration: none; }
+        border-radius: .2rem;
+    }
+}
+
+/* --- TEXT WRAPPERS --- */
+.split-text {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+
+    .left, .right {
+        flex-grow: 1;
+    }
+    .left {
+        text-align: left;
+        margin-bottom: .2rem;
+    }
+    .right {
+        text-align: right;
+        margin-top: .2rem;
+    }
+}
+
+/* --- TOKEN FORM --- */
+#token-form {
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+
+    input[type="text"], input[type="submit"] {
+        border-radius: 0;
+        margin: 0;
+        padding: .5rem 1rem;
+    }
+}
+
+/* --- ERROR BOX --- */
+.warning {
+    text-align: center;
+    margin: 1rem;
+}
+
+.error-message {
+    font-weight: bold;
+}

@@ -1,7 +1,7 @@
 <% file = File.open(Rails.root.to_s + "/data/" + post.path + '/' + post.slug + ".md") %>
-<div class="post-box-wrapper">
+<div class="card">
     <% if post.has_image? %>
-        <div class="img-wrapper">
+        <div class="cover-image-wrapper">
             <% if post.image_name =~ /^https?:\/\// %>
                 <img src="<%= post.image_name %>">
             <% else %>
@@ -9,7 +9,7 @@
             <% end %>
         </div>
     <% end %>
-    <div class="post-box markdown-body">
+    <div class="content markdown-body">
     <% if (with_title ||= false) %>
         <p class="date"><%= post.printable_creation_date %> by David</p>
         <h2 class="title"><%= link_to post.printable_name.html_safe, post.link %></h2>
@@ -37,7 +37,7 @@
 <% if (with_related_posts ||= false) %>
     <% related_posts = post.related_posts %>
     <% unless related_posts.empty? %>
-        <div class="related-posts-box">
+        <div class="card has-top-button">
             <div class="top-button-wrapper">
                 <%= link_to "Read more", related_posts.first.link, class: "top-button" %>
             </div>

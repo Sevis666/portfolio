@@ -5,15 +5,15 @@
 
 <% if has_previous || has_subtitle || has_next %>
     <div class="top-subtitles">
-        <h2 class="section-subtitle previous-page <%= has_previous ? nil:"hidden" %>">
+        <h2 class="subtitle previous-page <%= has_previous ? nil:"hidden" %>">
             <% if has_previous %>
                 <%= link_to "Previous page", @section.link_to_previous_page(params[:page]), class: "nomargin"%>
             <% end %>
         </h2>
         <% if has_subtitle %>
-            <h2 class="section-subtitle"><%= @section.subtitle %></h2>
+            <h2 class="subtitle"><%= @section.subtitle %></h2>
         <% end %>
-        <h2 class="section-subtitle next-page <%= has_next ? nil:"hidden" %>">
+        <h2 class="subtitle next-page <%= has_next ? nil:"hidden" %>">
             <% if has_next %>
                 <%= link_to "Next page", @section.link_to_next_page(params[:page]), class: "nomargin"%>
             <% end %>
@@ -37,9 +37,9 @@
 <% end %>
 
 <% unless next_posts.empty? %>
-    <div class="related-posts-box">
+    <div class="card has-top-button">
         <div class="top-button-wrapper">
-            <%= link_to "Show more", @section.link_to_next_page(params[:page]), class: "top-button" %>
+            <%= link_to "Show more", @section.link_to_next_page(params[:page]), class: "top-button nocolor" %>
         </div>
         <% next_posts.each do |p| %>
             <div class="related-post">

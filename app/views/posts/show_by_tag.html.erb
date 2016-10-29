@@ -1,9 +1,9 @@
 <div class="top-subtitles">
-    <h2 class="section-subtitle">Posts by tag : <%= @tag.name %></h2>
+    <h2 class="subtitle">Posts by tag : <%= @tag.name %></h2>
 </div>
 <% @posts.each do |post| %>
     <%= render "shared/post_overview", post: post %>
 <% end %>
 <div class="top-subtitles">
-    <a class="nomargin" href="/tags"><h2 class="section-subtitle">All tags</h2></a>
+    <a class="nomargin" href="/tags"><h2 class="subtitle">All tags</h2></a>
 </div>

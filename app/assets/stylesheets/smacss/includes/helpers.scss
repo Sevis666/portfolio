@@ -1,0 +1,13 @@
+@mixin text-size($font, $line) {
+    font-size: #{$font}rem;
+    line-height: #{$line}rem;
+}
+
+@function first($list) {
+    @return nth($list, 1);
+}
+
+.nomargin {
+    margin: 0;
+    padding: 0;
+}

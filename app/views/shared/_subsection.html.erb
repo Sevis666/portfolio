@@ -1,7 +1,7 @@
 <% section = Section.find(subsection.section_id) %>
-<div class="subsection-box-wrapper">
+<div class="card">
     <% if subsection.has_image? %>
-        <div class="img-wrapper">
+        <div class="cover-image-wrapper">
             <% if subsection.image_name =~ /^https?:\/\// %>
                 <img src="<%= subsection.image_name %>">
             <% else %>
@@ -9,7 +9,7 @@
             <% end %>
         </div>
     <% end %>
-    <div class="subsection-box">
+    <div class="content">
         <h2 class="title">
             <%= link_to subsection.name, section.slug + '/' + subsection.slug %>
         </h2>

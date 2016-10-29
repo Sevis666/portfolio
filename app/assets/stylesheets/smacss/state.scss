@@ -1,0 +1,18 @@
+@import "includes/helpers";
+
+.links-banner:not(.alternative) { display: none; }
+
+@media all and (min-width: 40rem) {
+    .links-banner:not(.alternative) { display: flex; }
+    .links-banner.alternative { display: none; }
+}
+
+@media all and (min-width: 50rem) {
+    .top-subtitles .subtitle.hidden { display: inline-block; }
+}
+
+main {
+    transform: translateZ(0);
+    transition: transform .8s;
+    &.side-menu-is-open { transform: translateX(100%); }
+}

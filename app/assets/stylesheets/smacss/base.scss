@@ -1,0 +1,39 @@
+@import "includes/helpers";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-family: "Fjord One", serif;
+}
+
+h1, h2, h3, h4, h5, p, a, small {
+    margin: .8rem;
+}
+
+h1 { @include text-size(2.5, 3); }
+h2 { @include text-size(2, 2.5); }
+p  { @include text-size(1.125, 1.45); }
+h5 { @include text-size(1, 1.25); }
+
+h5  { text-transform: uppercase; }
+
+a {
+    color: #000;
+    text-transform: none;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &.nomargin {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.small { @include text-size(1.2, 1); }
+
+sans-serif { font-family: Ruboto, sans-serif; }

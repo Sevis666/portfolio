@@ -1,0 +1,137 @@
+@import "includes/helpers";
+
+$cycling-colors-properties: background-color border-color color;
+$colors: #18ffff #64ffda #00e676 #76ff03 #c6ff00 #ffea00 #ff6e40 #ff5252 #ff4081 #e040fb #7c4dff ;
+
+@each $property in $cycling-colors-properties {
+    @keyframes #{$property}-change {
+        @each $color in $colors {
+            #{(index($colors, $color)-1) * 9}% { #{$property}: $color; }
+        }
+    }
+}
+
+@mixin glow($property) {
+    #{$property}: first($colors);
+    animation: #{$property}-change 25s 12;
+}
+
+body {
+    background: #e8e8e8;
+    overflow-x: hidden;
+}
+
+.header {
+    @include glow(background-color);
+    background-image: url("http://i.imgur.com/dgLTlBl.png");
+    background-repeat: repeat;
+    color: #fff;
+}
+
+.links-banner {
+    background: #000;
+
+    h5 {
+        color: #fff;
+        font-weight: bold;
+        &.selected { @include glow(color); }
+        border-right: 1px solid #fff;
+    }
+
+    a:last-child h5 { border: none; }
+
+    &.alternative h5 { border: none; }
+}
+
+.subtitle, .subtitle a {
+    color: #999;
+}
+.subtitle.hidden { display: none; }
+
+.next-page::after { content: "\02192"; }
+.previous-page::before { content: "\02190"; }
+
+.next-page.hidden::after, .previous-page.hidden::before { content: ""; }
+
+#side-menu {
+    background: #000;
+
+    h5 {
+        color: #e8e8e8;
+        &.selected { @include glow(color); }
+    }
+
+    .hint { color: #fff; }
+
+    hr {
+        border-bottom: 1px solid first($colors);
+        @include glow(border-color);
+    }
+
+    .close {
+        border: 1px solid first($colors);
+        @include glow(border-color);
+    }
+}
+
+main {
+    background: #e8e8e8;
+}
+
+.card {
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .5);
+    background: #fff;
+
+    a:not(.nocolor) { color: #4078c0; }
+    .date, .last-modification-date { color: #a0a0a0; }
+
+    .top-button {
+        background: #000;
+        border: 1px solid #000;
+        color: #fff;
+
+        &:hover {
+            background: #fff;
+            color: #000;
+        }
+    }
+}
+
+.related-post {
+    border-bottom: 1px solid #ccc;
+    &:last-child { border: none; }
+}
+
+.tags-wrapper .tag {
+    background: #aaa;
+    color: #fff;
+    &:hover {
+        background: #888;
+        text-decoration: none;
+    }
+}
+
+.footer p {
+    color: #a0a0a0;
+}
+
+#token-form {
+    input[type="text"] {
+        border: 1px solid #000;
+        border-bottom-left-radius: .2rem;
+        border-top-left-radius: .2rem;
+    }
+
+    input[type="submit"] {
+        border: 1px solid #000;
+        border-left: none;
+        border-bottom-right-radius: .2rem;
+        border-top-right-radius: .2rem;
+        color: #000;
+        background: #f2f2f2;
+    }
+}
+
+.error-message {
+    color: #e00;
+}
