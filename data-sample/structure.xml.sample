@@ -1,0 +1,59 @@
+<structure>
+  <!--
+      This is a sample structure file, that should be located at the root of
+      your data directory. It describes two sections, one having two subsections.
+      This means that your data directory should have the following form :
+
+      data
+      |- structure.xml
+      |- mainsection
+      |   |- post1.md
+      |   `- post1.xml
+      |- blog
+      |   |- programming
+      |   |   |- cpp.md
+      |   |   `- cpp.xml
+      |   `- roleplaying
+      |       |- dungeons-and-dragons.md
+      |       `- dungeons-and-dragons.xml
+      `- drafts
+          |- the-article-you-are-about-to-post.md
+          `- this-folder-is-ignored-because-not-listed-in-structure-file.txt
+
+      Note how directory names match the slugs defined below : this is how
+      Rails knows which folders can be served publicly. Any folder not listed here
+      is ignored, as well as all files that are neither markdown nor xml.
+  -->
+  <section>
+    <order>1</order>
+    <slug>mainsection</slug>
+    <name>Your Main Section</name>
+    <display>global:latest_posts</display>
+    <subtitle>Latest posts</subtitle>
+  </section>
+
+  <section>
+    <order>2</order>
+    <slug>blog</slug>
+    <name>Your Blog Section</name>
+    <display>folders</display>
+    <subtitle>A list of your subsections with images</subtitle>
+
+    <subsections>
+      <subsection>
+        <slug>programming</slug>
+        <name>Programming subsection</name>
+        <description>Programming blog posts in chronological order</description>
+        <display>all_posts</display>
+        <image-name>http://i.imgur.com/iKPMFkN.jpg</image-name>
+      </subsection>
+
+      <subsection>
+        <slug>roleplaying</slug>
+        <name>Roleplaying subsection with no image</name>
+        <description>Roleplaying posts, latest first</description>
+        <display>latest_posts</display>
+      </subsection>
+    </subsections>
+  </section>
+</structure>
