@@ -14,7 +14,7 @@
         <p class="date"><%= post.printable_creation_date %> by David</p>
         <h2 class="title"><%= link_to post.printable_name.html_safe, post.link %></h2>
         <% if (with_location ||= false) %>
-            <p class="location">Posted in <%= link_to post.location, post.link %></p>
+            <p class="location">Posted in <%= link_to post.location, post.location_link %></p>
         <% end %>
     <% end %>
     <%= @markdown.render(file.read).gsub(/&amp;([[:alpha:]]+);/, '&\1;').html_safe %>
