@@ -16,11 +16,14 @@ class Post < ActiveRecord::Base
     post
   end
 
-  def link
+  def location_link
     link = '/' + Section.find(section_id).slug
     link += '/' + Subsection.find(subsection_id).slug unless subsection_id.nil?
-    link += '/' + slug
     link
+  end
+
+  def link
+    location_link + '/' + slug
   end
 
   def related_posts
