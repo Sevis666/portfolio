@@ -129,6 +129,11 @@
         background-color: #fff;
     }
 
+    svg {
+      display: block;
+      margin: .5rem auto;
+    }
+
 /* --- BLOCKQUOTES AND CODE --- */
     code, kbd, pre {
         font-family: monospace, Ruboto, sans-serif;
