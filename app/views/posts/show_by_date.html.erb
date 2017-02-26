@@ -1,6 +1,11 @@
 <% year = 0 ; month = 0 %>
 <% @posts.each do |post| %>
     <% if post.creation_date.year != year %>
+        <% unless year == 0 %>
+            </div>
+            </div>
+        <% end %>
+
         <% year = post.creation_date.year %>
         <% month = 0 %>
         <div class="top-subtitles">
@@ -12,6 +17,7 @@
             </div>
             </div>
         <% end %>
+
         <% month = post.creation_date.month %>
         <div class="card">
             <div class="content">
